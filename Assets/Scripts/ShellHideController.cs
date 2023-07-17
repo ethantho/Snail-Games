@@ -9,6 +9,12 @@ using UnityEngine;
 //
 public class ShellHideController : MonoBehaviour
 {
+    
+    [SerializeField] 
+    public Animator anim;
+
+    private Rigidbody2D rb;
+
     TarodevController.PlayerController nonHidingController;
     InShellController hidingController;
     // Start is called before the first frame update
@@ -18,6 +24,7 @@ public class ShellHideController : MonoBehaviour
         hidingController = GetComponent<InShellController>();
         nonHidingController.enabled = true;
         hidingController.enabled = false;
+        rb = GetComponent<Rigidbody2D>();
 
     }
 
@@ -43,12 +50,19 @@ public class ShellHideController : MonoBehaviour
     {
         nonHidingController.enabled = false;
         hidingController.enabled = true;
+        rb.freezeRotation = false;
+        if(anim != null)
+            anim.SetBool("hiding", true);
     }
 
     void UnHide()
     {
         nonHidingController.enabled = true;
         hidingController.enabled = false;
+        transform.rotation = Quaternion.identity;
+        rb.freezeRotation = true;
+        if (anim != null)
+            anim.SetBool("hiding", false);
     }
 
 
