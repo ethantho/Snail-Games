@@ -12,8 +12,11 @@ public class ShellHideController : MonoBehaviour
     
     [SerializeField] 
     public Animator anim;
+    [SerializeField]
+    CapsuleCollider2D capsuleCollider;
 
     private Rigidbody2D rb;
+
 
     TarodevController.PlayerController nonHidingController;
     InShellController hidingController;
@@ -48,6 +51,8 @@ public class ShellHideController : MonoBehaviour
 
     void Hide()
     {
+        if (capsuleCollider != null)
+            capsuleCollider.enabled = false;
         nonHidingController.enabled = false;
         hidingController.enabled = true;
         rb.freezeRotation = false;
@@ -57,6 +62,8 @@ public class ShellHideController : MonoBehaviour
 
     void UnHide()
     {
+        if (capsuleCollider != null)
+            capsuleCollider.enabled = true;
         nonHidingController.enabled = true;
         hidingController.enabled = false;
         transform.rotation = Quaternion.identity;
