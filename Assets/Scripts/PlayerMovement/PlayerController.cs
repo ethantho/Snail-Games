@@ -128,7 +128,7 @@ namespace TarodevController {
             _groundHitCount = Physics2D.OverlapBoxNonAlloc(new Vector2(_col.bounds.center.x, _col.bounds.min.y), _col.size, 270, _groundHits, ~_stats.PlayerLayer);
             //_groundHitCount = Physics2D.CapsuleCastNonAlloc(new Vector2(_col.bounds.center.x, _col.bounds.min.y), _col.size, _col.direction, 0, Vector2.down, _groundHits, _stats.GrounderDistance, ~_stats.PlayerLayer);
             Debug.DrawLine(_col.bounds.center, new Vector3(_col.bounds.center.x, _col.bounds.min.y - _stats.GrounderDistance), Color.white);
-            Debug.Log("Ground:" + _groundHitCount);
+            //Debug.Log("Ground:" + _groundHitCount);
             _ceilingHitCount = Physics2D.CapsuleCastNonAlloc(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _ceilingHits, _stats.GrounderDistance, ~_stats.PlayerLayer);
 
             // Walls and Ladders
