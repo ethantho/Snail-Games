@@ -14,6 +14,8 @@ public class InShellController : MonoBehaviour
     public CapsuleCollider2D col;
     public bool grounded;
     float normalGravityScale;
+    public Transform center;
+
     
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class InShellController : MonoBehaviour
         distToGround = col.bounds.extents.y;
         Debug.Log(distToGround);
         width = col.bounds.extents.x;
+        
     }
 
     // Update is called once per frame
@@ -48,23 +51,33 @@ public class InShellController : MonoBehaviour
 
     void CheckIfGrounded()
     {
+        float leeway = 0.2f;
 
-        RaycastHit2D hitMid = Physics2D.Raycast(rb.position, -Vector2.up, distToGround + 0.1f, LayerMask.GetMask("Ground"));
-        RaycastHit2D hitLeft = Physics2D.Raycast(rb.position + (width * -Vector2.right), -Vector2.up, distToGround + 0.1f, LayerMask.GetMask("Ground"));
-        RaycastHit2D hitRight = Physics2D.Raycast(rb.position + (width * Vector2.right), -Vector2.up, distToGround + 0.1f, LayerMask.GetMask("Ground"));
+        
+
+        //down
+        RaycastHit2D hitMid = Physics2D.Raycast(center.position, -Vector2.up, distToGround + leeway, LayerMask.GetMask("Ground"));
+        /*RaycastHit2D hitLeft = Physics2D.Raycast(rb.position + (width * -Vector2.right), -Vector2.up, distToGround + leeway, LayerMask.GetMask("Ground"));
+        RaycastHit2D hitRight = Physics2D.Raycast(rb.position + (width * Vector2.right), -Vector2.up, distToGround + leeway, LayerMask.GetMask("Ground"));*/
+
+
+        Debug.DrawRay(center.position, -Vector2.up * (distToGround + leeway) ,Color.red , 1f, false);
+
+        if (hitMid)
+        {
+            grounded = true;
+            return;
+        }
+
+
+
 
         //Debug.Log(hit.collider.tag);
 
-        if (hitMid || hitLeft || hitRight)
-        {
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-        }
 
 
+        grounded = false;
+        
 
     }
 
