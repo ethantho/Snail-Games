@@ -805,6 +805,7 @@ MonoBehaviour:
   col: {fileID: 613699384}
   grounded: 0
   center: {fileID: 746009503}
+  rollspeed: 0.1
 --- !u!114 &613699393
 MonoBehaviour:
   m_ObjectHideFlags: 0

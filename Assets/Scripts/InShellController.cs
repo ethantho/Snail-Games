@@ -15,6 +15,7 @@ public class InShellController : MonoBehaviour
     public bool grounded;
     float normalGravityScale;
     public Transform center;
+    public float rollspeed = 1f;
 
     
     // Start is called before the first frame update
@@ -37,16 +38,21 @@ public class InShellController : MonoBehaviour
         if (grounded)
         {
             //rb.gravityScale = 10 * normalGravityScale;
+            //rb.gravityScale = 0.1f;
         }
         else
         {
             //rb.gravityScale = normalGravityScale;
+            //rb.gravityScale = 10;
         }
 
         if (grounded && Input.GetButtonDown("Jump"))
         {
             Jump();
         }
+
+        Roll();
+
     }
 
     void CheckIfGrounded()
@@ -57,13 +63,16 @@ public class InShellController : MonoBehaviour
 
         //down
         RaycastHit2D hitMid = Physics2D.Raycast(center.position, -Vector2.up, distToGround + leeway, LayerMask.GetMask("Ground"));
+        RaycastHit2D hitCirc = Physics2D.CircleCast(center.position, 0.5f, Vector2.down, distToGround + leeway, LayerMask.GetMask("Ground"));
+
         /*RaycastHit2D hitLeft = Physics2D.Raycast(rb.position + (width * -Vector2.right), -Vector2.up, distToGround + leeway, LayerMask.GetMask("Ground"));
         RaycastHit2D hitRight = Physics2D.Raycast(rb.position + (width * Vector2.right), -Vector2.up, distToGround + leeway, LayerMask.GetMask("Ground"));*/
 
 
         Debug.DrawRay(center.position, -Vector2.up * (distToGround + leeway) ,Color.red , 1f, false);
+        
 
-        if (hitMid)
+        if (hitCirc)
         {
             grounded = true;
             return;
@@ -86,5 +95,15 @@ public class InShellController : MonoBehaviour
     {
         grounded = false;
         rb.AddForce(jumpPower * Vector2.up, ForceMode2D.Impulse);
+    }
+
+    void Roll()
+    {
+        float speed = Input.GetAxis("Horizontal");
+
+        if (grounded)
+        {
+            rb.velocity += new Vector2(speed * rollspeed, 0);
+        }
     }
 }
