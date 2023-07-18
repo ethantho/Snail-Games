@@ -791,6 +791,7 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: 3346e175a340df840a492dfa9b870ebf, type: 2}
   _standingCollider: {fileID: 613699384}
   _crouchingCollider: {fileID: 613699390}
+  center: {fileID: 746009503}
 --- !u!4 &613699389
 Transform:
   m_ObjectHideFlags: 0
