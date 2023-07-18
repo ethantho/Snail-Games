@@ -13,6 +13,8 @@ public class InShellController : MonoBehaviour
     float width;
     public CapsuleCollider2D col;
     public bool grounded;
+    public bool groundedLeft;
+    public bool groundedRight;
     float normalGravityScale;
     public Transform center;
     public float rollspeed = 1f;
@@ -50,6 +52,14 @@ public class InShellController : MonoBehaviour
         {
             Jump();
         }
+        else if (groundedLeft && Input.GetButtonDown("Jump"))
+        {
+            WallJump(1f);
+        }
+        else if (groundedRight && Input.GetButtonDown("Jump"))
+        {
+            WallJump(-1f);
+        }
 
         Roll();
 
@@ -63,7 +73,7 @@ public class InShellController : MonoBehaviour
 
         //down
         RaycastHit2D hitMid = Physics2D.Raycast(center.position, -Vector2.up, distToGround + leeway, LayerMask.GetMask("Ground"));
-        RaycastHit2D hitCirc = Physics2D.CircleCast(center.position, 0.5f, Vector2.down, distToGround + leeway, LayerMask.GetMask("Ground"));
+        //RaycastHit2D hitCirc = Physics2D.CircleCast(center.position, 0.5f, Vector2.down, distToGround + leeway, LayerMask.GetMask("Ground"));
 
         /*RaycastHit2D hitLeft = Physics2D.Raycast(rb.position + (width * -Vector2.right), -Vector2.up, distToGround + leeway, LayerMask.GetMask("Ground"));
         RaycastHit2D hitRight = Physics2D.Raycast(rb.position + (width * Vector2.right), -Vector2.up, distToGround + leeway, LayerMask.GetMask("Ground"));*/
@@ -72,10 +82,39 @@ public class InShellController : MonoBehaviour
         Debug.DrawRay(center.position, -Vector2.up * (distToGround + leeway) ,Color.red , 1f, false);
         
 
-        if (hitCirc)
+        if (hitMid)
         {
             grounded = true;
-            return;
+        }
+        else
+        {
+            grounded = false;
+        }
+
+        RaycastHit2D hitLeft = Physics2D.Raycast(center.position, -Vector2.right, width + leeway, LayerMask.GetMask("Ground"));
+
+        Debug.DrawRay(center.position, -Vector2.right * (width + leeway), Color.blue, 1f, false);
+
+        if (hitLeft)
+        {
+            groundedLeft = true;
+        }
+        else
+        {
+            groundedLeft = false;
+        }
+
+        RaycastHit2D hitRight = Physics2D.Raycast(center.position, Vector2.right, width + leeway, LayerMask.GetMask("Ground"));
+
+        Debug.DrawRay(center.position, Vector2.right * (width + leeway), Color.green, 1f, false);
+
+        if (hitRight)
+        {
+            groundedRight = true;
+        }
+        else
+        {
+            groundedRight = false;
         }
 
 
@@ -85,8 +124,8 @@ public class InShellController : MonoBehaviour
 
 
 
-        grounded = false;
-        
+
+
 
     }
 
@@ -95,6 +134,13 @@ public class InShellController : MonoBehaviour
     {
         grounded = false;
         rb.AddForce(jumpPower * Vector2.up, ForceMode2D.Impulse);
+    }
+
+    void WallJump(float dir)
+    {
+        groundedLeft = false;
+        groundedRight = false;
+        rb.AddForce(jumpPower * (Vector2.up + dir * Vector2.right).normalized, ForceMode2D.Impulse);
     }
 
     void Roll()

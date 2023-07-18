@@ -24,7 +24,8 @@ public class EnemyDie : MonoBehaviour
             Debug.Log("Player: " + collision.gameObject.GetComponent<Rigidbody2D>().velocity.y);
             Debug.Log("Enemy: " + rb.velocity.y);
 
-            if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y - rb.velocity.y < -0.1f)
+            //if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y - rb.velocity.y < -0.1f)
+            if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y  < -0.2f)
             {
                 
                 Die();
