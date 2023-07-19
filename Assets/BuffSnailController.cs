@@ -19,6 +19,8 @@ public class BuffSnailController : MonoBehaviour
 
     float distToGround;
 
+    float width;
+
     CapsuleCollider2D col;
 
     Vector2 prevPos;
@@ -29,6 +31,7 @@ public class BuffSnailController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
         distToGround = col.bounds.extents.y;
+        width = col.bounds.extents.x;
         Debug.Log(distToGround);
         prevPos = rb.position;
     }
@@ -74,9 +77,13 @@ public class BuffSnailController : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(rb.position, -Vector2.up, distToGround + 0.1f, LayerMask.GetMask("Ground"));
 
+        RaycastHit2D hitL = Physics2D.Raycast(rb.position - Vector2.right * width, -Vector2.up, distToGround + 0.1f, LayerMask.GetMask("Ground"));
+
+        RaycastHit2D hitR = Physics2D.Raycast(rb.position + Vector2.right * width, -Vector2.up, distToGround + 0.1f, LayerMask.GetMask("Ground"));
+
         //Debug.Log(hit.collider.tag);
 
-        if (hit)
+        if (hit || hitL || hitR)
         {
             grounded = true;
         }
