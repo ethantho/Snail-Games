@@ -28,7 +28,7 @@ MonoBehaviour:
   MaxFallSpeed: 40
   FallAcceleration: 150
   JumpEndEarlyGravityModifier: 3
-  CoyoteFrames: 7
+  CoyoteFrames: 0
   JumpBufferFrames: 7
   AllowWalls: 1
   ClimbableLayer:
@@ -57,7 +57,7 @@ MonoBehaviour:
   LedgeRaycastSpacing: 0.3
   LedgeClimbDuration: 0.5
   AllowDash: 1
-  DashVelocity: 50
+  DashVelocity: 30
   DashDurationFrames: 5
   DashEndHorizontalMultiplier: 0.25
   AllowAttacks: 1
@@ -65,7 +65,7 @@ MonoBehaviour:
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 64
-  GrounderDistance: 0.47
+  GrounderDistance: 0.39
   WallDetectorSize: {x: 0.75, y: 1.25}
   ExternalVelocityDecay: 100
   ShowWallDetection: 1
