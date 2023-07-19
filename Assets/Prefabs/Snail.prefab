@@ -188,14 +188,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001951405984441381}
-  - component: {fileID: 2001951405984441380}
   - component: {fileID: 2001951405984441379}
   - component: {fileID: 2001951405984441433}
   - component: {fileID: 2001951405984441378}
   - component: {fileID: 2001951405984441376}
-  - component: {fileID: 2001951405984441382}
   - component: {fileID: 2001951405984441383}
   - component: {fileID: 2001951405984441435}
+  - component: {fileID: 6895217458036832745}
   m_Layer: 6
   m_Name: Snail
   m_TagString: Player
@@ -220,22 +219,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2001951405984441380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001951405984441391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f61c64124c8575748994f087b9dc1b8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 3346e175a340df840a492dfa9b870ebf, type: 2}
-  _standingCollider: {fileID: 2001951405984441376}
-  _crouchingCollider: {fileID: 2001951405984441382}
-  center: {fileID: 0}
 --- !u!114 &2001951405984441379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,22 +283,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.99, y: 1.39}
   m_Size: {x: 2.2140148, y: 1.3444682}
   m_Direction: 1
---- !u!70 &2001951405984441382
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001951405984441391}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.53, y: 1.44}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
 --- !u!114 &2001951405984441383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPower: 28
-  wallJumpPower: 0
+  wallJumpPower: 35
   col: {fileID: 2001951405984441376}
   grounded: 0
   groundedLeft: 0
@@ -352,6 +319,23 @@ CircleCollider2D:
   m_Offset: {x: 0.52, y: 1.44}
   serializedVersion: 2
   m_Radius: 0.6
+--- !u!114 &6895217458036832745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001951405984441391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b748f8d7620d364fb3734c4aa9f3cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 15
+  topSpeed: 15
+  jumpPower: 30
+  friction: 40
+  grounded: 0
 --- !u!1 &2001951406117619495
 GameObject:
   m_ObjectHideFlags: 0

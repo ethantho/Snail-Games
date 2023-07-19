@@ -50,7 +50,7 @@ MonoBehaviour:
   LadderClimbSpeed: 8
   LadderSlideSpeed: 12
   LadderCooldownFrames: 8
-  AllowLedges: 1
+  AllowLedges: 0
   LedgeGrabDeceleration: 4
   LedgeGrabPoint: {x: 0.3, y: 0.7}
   StandUpOffset: {x: 0.25, y: 0.1}

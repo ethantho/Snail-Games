@@ -14,21 +14,24 @@ public class ShellHideController : MonoBehaviour
     public Animator anim;
     [SerializeField]
     CapsuleCollider2D capsuleCollider;
+    CircleCollider2D shellCollider;
     public bool hiding;
 
     private Rigidbody2D rb;
 
 
-    TarodevController.PlayerController nonHidingController;
+    BuffSnailController nonHidingController;
     InShellController hidingController;
     // Start is called before the first frame update
     void Start()
     {
-        nonHidingController = GetComponent<TarodevController.PlayerController>();
+        nonHidingController = GetComponent<BuffSnailController>();
         hidingController = GetComponent<InShellController>();
         nonHidingController.enabled = true;
         hidingController.enabled = false;
         rb = GetComponent<Rigidbody2D>();
+        shellCollider = GetComponent<CircleCollider2D>();
+        shellCollider.enabled = false;
 
     }
 
@@ -54,18 +57,23 @@ public class ShellHideController : MonoBehaviour
     {
         if (capsuleCollider != null)
             capsuleCollider.enabled = false;
+        shellCollider.enabled = true;
+
         nonHidingController.enabled = false;
         hidingController.enabled = true;
         rb.freezeRotation = false;
         if(anim != null)
             anim.SetBool("hiding", true);
         hiding = true;
+
+
     }
 
     void UnHide()
     {
         if (capsuleCollider != null)
             capsuleCollider.enabled = true;
+        shellCollider.enabled = false;
         nonHidingController.enabled = true;
         hidingController.enabled = false;
         transform.rotation = Quaternion.identity;

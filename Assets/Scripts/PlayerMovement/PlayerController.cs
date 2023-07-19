@@ -13,7 +13,7 @@ namespace TarodevController {
 
         [HideInInspector] private Rigidbody2D _rb;
         [SerializeField] private CapsuleCollider2D _standingCollider;
-        [SerializeField] private CapsuleCollider2D _crouchingCollider;
+       // [SerializeField] private CapsuleCollider2D _crouchingCollider;
         private CapsuleCollider2D _col; // current active collider
         private PlayerInput _input;
         private bool _cachedTriggerSetting;
@@ -342,9 +342,10 @@ namespace TarodevController {
         }
 
         protected virtual void ToggleColliders(bool isStanding) {
-            _col = isStanding ? _standingCollider : _crouchingCollider;
+            //_col = isStanding ? _standingCollider : _crouchingCollider;
+            _col = _standingCollider;
             _standingCollider.enabled = isStanding;
-            _crouchingCollider.enabled = !isStanding;
+            //_crouchingCollider.enabled = !isStanding;
         }
 
         protected virtual bool CanStandUp() {
@@ -588,7 +589,7 @@ namespace TarodevController {
         private void OnValidate() {
             if (_stats == null) Debug.LogWarning("Please assign a ScriptableStats asset to the Player Controller's Stats slot", this);
             if (_standingCollider == null) Debug.LogWarning("Please assign a Capsule Collider to the Standing Collider slot", this);
-            if (_crouchingCollider == null) Debug.LogWarning("Please assign a Capsule Collider to the Crouching Collider slot", this);
+            //if (_crouchingCollider == null) Debug.LogWarning("Please assign a Capsule Collider to the Crouching Collider slot", this);
             if (_rb == null) _rb = GetComponent<Rigidbody2D>(); // serialized but hidden in the inspector
         }
 #endif
