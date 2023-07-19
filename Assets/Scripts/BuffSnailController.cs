@@ -104,6 +104,7 @@ public class BuffSnailController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.AddForce(jumpPower * Vector2.up, ForceMode2D.Impulse);
+            GetComponent<AudioSource>().Play();
         }
     }
 
