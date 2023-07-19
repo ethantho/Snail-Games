@@ -349,6 +349,8 @@ MonoBehaviour:
   jumpPower: 35
   friction: 40
   grounded: 0
+  dashing: 0
+  dashCoolDown: 1
 --- !u!1 &2001951406117619495
 GameObject:
   m_ObjectHideFlags: 0

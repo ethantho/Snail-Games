@@ -22,9 +22,15 @@ public class BuffSnailController : MonoBehaviour
     CapsuleCollider2D col;
 
     Vector2 prevPos;
+
+    public bool dashing;
+    float dashTimer;
+    [SerializeField] float dashCoolDown;
     // Start is called before the first frame update
     void Start()
     {
+        dashing = false;
+        dashTimer = 0;
         dashCoefficient = 1f;
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
@@ -123,14 +129,40 @@ public class BuffSnailController : MonoBehaviour
 
     void DoDashing()
     {
-        if (Input.GetButton("Fire3"))
+        //start dash
+        if (Input.GetButtonDown("Fire3") && Mathf.Abs(dashTimer) <= 0.1f)
         {
             dashCoefficient = 3f;
+            dashing = true;
         }
-        else
+
+        //stop dash early
+        if (Input.GetButtonUp("Fire3"))
+        {
+            dashing = false;
+
+        }
+
+        //continue dash
+
+        if(dashing && dashTimer < dashCoolDown)
+        {
+            dashTimer += Time.deltaTime;
+        }
+
+        //stop dash by force
+        if(dashing && dashTimer >= dashCoolDown)
+        {
+            dashing = false;
+        }
+
+        if (!dashing)
         {
             dashCoefficient = 1f;
+            dashing = false;
+            dashTimer = Mathf.Max(0, dashTimer - 0.5f * Time.deltaTime);
         }
+        
     }
 
 
