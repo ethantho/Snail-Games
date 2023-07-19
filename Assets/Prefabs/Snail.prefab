@@ -235,7 +235,6 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: 3346e175a340df840a492dfa9b870ebf, type: 2}
   _standingCollider: {fileID: 2001951405984441376}
   _crouchingCollider: {fileID: 2001951405984441382}
-  center: {fileID: 0}
 --- !u!114 &2001951405984441379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +261,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 2001951405447359677}
   capsuleCollider: {fileID: 2001951405984441376}
-  hiding: 0
 --- !u!50 &2001951405984441378
 Rigidbody2D:
   serializedVersion: 4
@@ -328,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18bf2679894457e4984c685bae5d6d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 28
+  jumpPower: 35
   col: {fileID: 2001951405984441376}
   grounded: 0
   groundedLeft: 0
