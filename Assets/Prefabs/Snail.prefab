@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2001951405447359675}
   - component: {fileID: 2001951405447359677}
   - component: {fileID: 2001951405447359676}
+  - component: {fileID: 1306207129395513243}
   m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
@@ -148,6 +149,18 @@ MonoBehaviour:
   _jumpParticlesParent: {fileID: 2001951406274548779}
   _attackAnimTime: 0.25
   _attackClip: {fileID: 0}
+--- !u!114 &1306207129395513243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001951405447359673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75c400022a8b3c4d89a883326cd41eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2001951405856299142
 GameObject:
   m_ObjectHideFlags: 0
