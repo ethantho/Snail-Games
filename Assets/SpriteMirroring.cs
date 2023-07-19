@@ -25,5 +25,10 @@ public class SpriteMirroring : MonoBehaviour
         {
             spr.flipX = false;
         }
+
+        if (Input.GetButton("Hide"))
+        {
+            spr.flipX = false;
+        }
     }
 }
