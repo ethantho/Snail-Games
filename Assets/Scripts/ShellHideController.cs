@@ -14,7 +14,6 @@ public class ShellHideController : MonoBehaviour
     public Animator anim;
     [SerializeField]
     CapsuleCollider2D capsuleCollider;
-    public bool hiding;
 
     private Rigidbody2D rb;
 
@@ -59,7 +58,6 @@ public class ShellHideController : MonoBehaviour
         rb.freezeRotation = false;
         if(anim != null)
             anim.SetBool("hiding", true);
-        hiding = true;
     }
 
     void UnHide()
@@ -72,7 +70,6 @@ public class ShellHideController : MonoBehaviour
         rb.freezeRotation = true;
         if (anim != null)
             anim.SetBool("hiding", false);
-        hiding = false;
     }
 
 

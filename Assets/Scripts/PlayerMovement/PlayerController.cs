@@ -23,7 +23,6 @@ namespace TarodevController {
         private Vector2 _currentExternalVelocity;
         private int _fixedFrame;
         private bool _hasControl = true;
-        public Transform center;
 
         #endregion
 
@@ -143,9 +142,7 @@ namespace TarodevController {
 
         protected virtual bool TryGetGroundNormal(out Vector2 groundNormal) {
             Physics2D.queriesHitTriggers = false;
-            //var hit = Physics2D.Raycast(_rb.position, Vector2.down, _stats.GrounderDistance * 2, ~_stats.PlayerLayer);
-            var hit = Physics2D.Raycast(center.position, Vector2.down, _stats.GrounderDistance * 2, ~_stats.PlayerLayer);
-            Debug.DrawRay(center.position, Vector2.down * _stats.GrounderDistance * 2, Color.cyan, 0.5f, false);
+            var hit = Physics2D.Raycast(_rb.position, Vector2.down, _stats.GrounderDistance * 2, ~_stats.PlayerLayer);
             Physics2D.queriesHitTriggers = _cachedTriggerSetting;
             groundNormal = hit.normal; // defaults to Vector2.zero if nothing was hit
             return hit.collider != null;
@@ -373,7 +370,6 @@ namespace TarodevController {
 
         protected virtual void HandleJump() {
             if (_jumpToConsume || HasBufferedJump) {
-                Debug.Log("Jumping");
                 if (_isOnWall && !_isLeavingWall) WallJump();
                 else if (_grounded || _onLadder || CanUseCoyote) NormalJump();
                 else if (_jumpToConsume && CanAirJump) AirJump();
@@ -385,7 +381,6 @@ namespace TarodevController {
         }
 
         protected virtual void NormalJump() { // includes ladder jumps
-            Debug.Log("NormalJump");
             _endedJumpEarly = false;
             _bufferedJumpUsable = false;
             _coyoteUsable = false;
@@ -393,8 +388,6 @@ namespace TarodevController {
             //Debug.Log(GroundNormal);
             _speed.x = GroundNormal.x * _stats.JumpPower;
             _speed.y = GroundNormal.y * _stats.JumpPower;
-
-            Debug.Log("y speed: " + _speed.y.ToString());
             //a_speed.y = _stats.JumpPower;
             Jumped?.Invoke(false);
         }
