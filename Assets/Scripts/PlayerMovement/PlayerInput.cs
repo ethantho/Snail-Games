@@ -41,7 +41,8 @@ namespace TarodevController {
             return new FrameInput {
                 JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C),
                 JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C),
-                DashDown = Input.GetKeyDown(KeyCode.X),
+                //DashDown = Input.GetKeyDown(KeyCode.X),
+                DashDown = Input.GetButton("Fire3"), //using GetButton instead of GetButtonDown because our dash needs to be held down
                 AttackDown = Input.GetKeyDown(KeyCode.Z) || Input.GetMouseButtonDown(0),
                 Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")),
             };
