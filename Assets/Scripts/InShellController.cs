@@ -8,6 +8,7 @@ using UnityEngine;
 public class InShellController : MonoBehaviour
 {
     [SerializeField] float jumpPower;
+    [SerializeField] float wallJumpPower;
     Rigidbody2D rb;
     float distToGround;
     float width;
@@ -140,7 +141,7 @@ public class InShellController : MonoBehaviour
     {
         groundedLeft = false;
         groundedRight = false;
-        rb.AddForce(jumpPower * (Vector2.up + dir * Vector2.right).normalized, ForceMode2D.Impulse);
+        rb.AddForce(wallJumpPower * (Vector2.up + dir * Vector2.right).normalized, ForceMode2D.Impulse);
     }
 
     void Roll()
