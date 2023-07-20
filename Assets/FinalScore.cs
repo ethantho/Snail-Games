@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ScoreTracker : MonoBehaviour
+public class FinalScore : MonoBehaviour
 {
-    int score;
-    TMP_Text tmp;
+    TMP_Text txt;
     // Start is called before the first frame update
+
+
     void Start()
     {
-        score = 0;
-        tmp = GetComponent<TMP_Text>();
+        txt = GetComponent<TMP_Text>();
+        txt.text = DataTracker.finalScore.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        tmp.text = score.ToString();
-    }
-
-    public void GetPoints(int points)
-    {
-        score += points;
+        
     }
 }

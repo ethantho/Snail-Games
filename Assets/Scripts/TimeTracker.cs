@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TimeTracker : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class TimeTracker : MonoBehaviour
         if(timeRemaining <= 0)
         {
             levelOver = true;
+            SceneManager.LoadScene(1);
         }
 
         tmp.text = timeRemaining.ToString();
