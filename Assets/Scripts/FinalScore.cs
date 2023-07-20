@@ -12,11 +12,13 @@ public class FinalScore : MonoBehaviour
     void Start()
     {
         txt = GetComponent<TMP_Text>();
-        txt.text = DataTracker.finalScore.ToString();
+        txt.text =
+
+        txt.text = "Your score: " + DataTracker.finalScore.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
         
     }

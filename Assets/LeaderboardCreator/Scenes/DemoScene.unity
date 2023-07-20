@@ -1894,7 +1894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12696615b7625f04baae0bf7809c049d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leaderboardPublicKey: ff782ca99b24b089d66aeb45d249e79d13be7695e0736200fc15b676a6052fb1
+  _leaderboardPublicKey: aefa346d07615d2fb2538a7bbec7e4d2c7526e756dea52ee051bf6cafc9a708c
   _playerScoreText: {fileID: 864817082}
   _entryFields:
   - {fileID: 1016747572}
@@ -4666,7 +4666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &707038190
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9564,7 +9564,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1891388469}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.10631228
+  m_Size: 0.10631229
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
