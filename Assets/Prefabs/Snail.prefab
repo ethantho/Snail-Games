@@ -260,6 +260,7 @@ MonoBehaviour:
   anim: {fileID: 2001951405447359677}
   capsuleCollider: {fileID: 2001951405984441376}
   hiding: 0
+  Center: {fileID: 2001951405856299143}
 --- !u!50 &2001951405984441378
 Rigidbody2D:
   serializedVersion: 4

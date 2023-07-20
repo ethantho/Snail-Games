@@ -16,6 +16,7 @@ public class ShellHideController : MonoBehaviour
     CapsuleCollider2D capsuleCollider;
     CircleCollider2D shellCollider;
     public bool hiding;
+    public Transform Center;
 
     private Rigidbody2D rb;
 
@@ -71,16 +72,19 @@ public class ShellHideController : MonoBehaviour
 
     void UnHide()
     {
+        transform.rotation = Quaternion.identity;
         if (capsuleCollider != null)
             capsuleCollider.enabled = true;
         shellCollider.enabled = false;
         nonHidingController.enabled = true;
         hidingController.enabled = false;
-        transform.rotation = Quaternion.identity;
+        
         rb.freezeRotation = true;
         if (anim != null)
             anim.SetBool("hiding", false);
         hiding = false;
+
+        //transform.position = Center.position - Vector3.right;
     }
 
 
