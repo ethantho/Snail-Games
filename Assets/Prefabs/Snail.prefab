@@ -317,7 +317,7 @@ MonoBehaviour:
   groundedLeft: 0
   groundedRight: 0
   center: {fileID: 2001951405856299143}
-  rollspeed: 0.1
+  rollspeed: 15
 --- !u!58 &2001951405984441435
 CircleCollider2D:
   m_ObjectHideFlags: 0

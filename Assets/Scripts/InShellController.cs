@@ -141,7 +141,7 @@ public class InShellController : MonoBehaviour
     {
         groundedLeft = false;
         groundedRight = false;
-        rb.AddForce(wallJumpPower * ( 2 * Vector2.up + dir * Vector2.right).normalized, ForceMode2D.Impulse);
+        rb.AddForce(wallJumpPower * ( ( 2 * Vector2.up ) + dir * Vector2.right).normalized, ForceMode2D.Impulse);
     }
 
     void Roll()
@@ -150,7 +150,7 @@ public class InShellController : MonoBehaviour
 
         if (grounded)
         {
-            rb.velocity += new Vector2(speed * rollspeed, 0);
+            rb.velocity += new Vector2(speed * rollspeed, 0) * Time.deltaTime;
         }
     }
 }
