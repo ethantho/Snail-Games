@@ -18,9 +18,16 @@ namespace Dan.Demo
         
         private void Start()
         {
-            _playerScore = DataTracker.finalScore;
+            _playerScore = DataTracker.returnedHome ? DataTracker.finalScore * 2 : DataTracker.finalScore;
+
 
             _playerScoreText.text = "Your score: " + _playerScore.ToString();
+
+            if (!DataTracker.returnedHome)
+            {
+                _playerScoreText.text = _playerScoreText.text + "\nReturn home before time runs out for double points!";
+            }
+
             Load();
 
         }

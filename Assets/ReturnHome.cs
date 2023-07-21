@@ -22,6 +22,7 @@ public class ReturnHome : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && readyToLeave)
         {
             DataTracker.finalScore += (int) tt.timeRemaining;
+            DataTracker.returnedHome = true;
             SceneManager.LoadScene(1);
         }
     }
