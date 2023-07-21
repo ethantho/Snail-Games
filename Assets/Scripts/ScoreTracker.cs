@@ -22,7 +22,7 @@ public class ScoreTracker : MonoBehaviour
 
     public void GetPoints(int points)
     {
-        score += points;
+        score += points * 1000;
         DataTracker.finalScore = score;
     }
 }

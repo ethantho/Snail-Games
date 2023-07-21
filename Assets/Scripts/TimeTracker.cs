@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TimeTracker : MonoBehaviour
 {
     [SerializeField] float timeLimit;
-    float timeRemaining;
+    public float timeRemaining;
     TMP_Text tmp;
     public bool levelOver;
     // Start is called before the first frame update
