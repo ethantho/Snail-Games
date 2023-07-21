@@ -25,7 +25,7 @@ namespace Dan.Demo
 
             if (!DataTracker.returnedHome)
             {
-                _playerScoreText.text = _playerScoreText.text + "\nReturn home before time runs out for double points!";
+                _playerScoreText.text = _playerScoreText.text + "\n\n\nReturn home before time runs out for double points!";
             }
 
             Load();

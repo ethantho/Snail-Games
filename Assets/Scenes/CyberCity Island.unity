@@ -1442,6 +1442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLimit: 120
+  timeRemaining: 0
   levelOver: 0
 --- !u!114 &1505937628
 MonoBehaviour:
