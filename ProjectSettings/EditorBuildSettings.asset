@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CyberCity Island.unity
     guid: 3d3370931dbd83443aba05b8e2d3537b
+  - enabled: 1
+    path: Assets/Scenes/CutScene.unity
+    guid: ca457c76ec948aa449e3d3c528afddbe
   m_configObjects: {}
