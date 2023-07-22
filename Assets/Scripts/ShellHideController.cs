@@ -23,6 +23,10 @@ public class ShellHideController : MonoBehaviour
 
     BuffSnailController nonHidingController;
     InShellController hidingController;
+
+
+    [SerializeField] AudioSource buffModeSound;
+    [SerializeField] AudioSource shellModeSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +71,7 @@ public class ShellHideController : MonoBehaviour
             anim.SetBool("hiding", true);
         hiding = true;
 
-
+        shellModeSound.Play();
     }
 
     void UnHide()
@@ -84,6 +88,8 @@ public class ShellHideController : MonoBehaviour
             anim.SetBool("hiding", false);
         hiding = false;
 
+
+        buffModeSound.Play();
         //transform.position = Center.position - Vector3.right;
     }
 

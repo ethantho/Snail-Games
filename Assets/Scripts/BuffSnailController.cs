@@ -27,6 +27,8 @@ public class BuffSnailController : MonoBehaviour
     public bool dashing;
     float dashTimer;
     [SerializeField] float dashCoolDown;
+
+    [SerializeField] AudioSource jumpSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -114,7 +116,8 @@ public class BuffSnailController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.AddForce(jumpPower * Vector2.up, ForceMode2D.Impulse);
-            GetComponent<AudioSource>().Play();
+            
+            jumpSound.Play();
         }
     }
 

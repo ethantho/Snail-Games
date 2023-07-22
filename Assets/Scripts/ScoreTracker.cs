@@ -24,5 +24,6 @@ public class ScoreTracker : MonoBehaviour
     {
         score += points * 1000;
         DataTracker.finalScore = score;
+        GetComponent<AudioSource>().Play();
     }
 }

@@ -22,7 +22,10 @@ public class Smoothie : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             FindAnyObjectByType<ScoreTracker>().GetPoints(points);
+            
             Destroy(gameObject);
         }
     }
+
+    
 }
