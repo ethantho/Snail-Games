@@ -10,12 +10,17 @@ public class TimeTracker : MonoBehaviour
     public float timeRemaining;
     TMP_Text tmp;
     public bool levelOver;
+    AudioSource tick;
+    bool tickStarted;
     // Start is called before the first frame update
     void Start()
     {
         timeRemaining = timeLimit;
         levelOver = false;
         tmp = GetComponent<TMP_Text>();
+
+        tick = GetComponent<AudioSource>();
+        tickStarted = false;
     }
 
     // Update is called once per frame
@@ -30,6 +35,20 @@ public class TimeTracker : MonoBehaviour
         }
 
         tmp.text = timeRemaining.ToString();
+
+        if(timeRemaining < 30f)
+        {
+            StartCoroutine(Ticking());
+        }
         
+    }
+
+    IEnumerator Ticking()
+    {
+        while (timeRemaining > 0)
+        {
+            tick.Play();
+            yield return new WaitForSeconds(1f);
+        }
     }
 }
